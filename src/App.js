@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+// Example to show what is the need of redux management tool
+
+import { useState } from "react";
+import CountTwo from "./CountTwo";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+	const [count, setCount] = useState(0);
+
+	const increment = () => {
+
+		const newCount = count + 1;
+
+		setCount(newCount)
+
+	}
+
+	return (
+		<div>
+			<h1>Count:{count}</h1>
+
+			<button onClick={increment}>Increment</button>
+			<CountTwo countP={count}/>
+		</div>
+	)
 }
 
 export default App;
